@@ -1,33 +1,28 @@
 {
-  "manifest_version": 3,
-  "name": "LibraGuard",
-  "version": "1.0",
-  "action": {
+    "manifest_version": 2,
+    "name": "LibraGuard",
+    "version": "1.0",
+    "browser_action": {
     "default_icon": {
-      "16": "src/img/libraguard16.png",
-      "32": "src/img/libraguard32.png"
+      "16": "src/img/libraguard16.png", 
+      "32": "src/img/libraguard32.png"  
     },
     "default_popup": "src/components/popup-component/popup.html"
   },
-  "permissions": [
-    "tabs",
-    "declarativeNetRequestWithHostAccess",
-    "webNavigation",
-    "notifications"
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["/stopyaar.html"],
-      "matches": ["<all_urls>"]
-    }
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ]
-}
+    "permissions": [
+      "tabs",
+      "webRequest",
+      "webRequestBlocking",
+      "<all_urls>"
+    ],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
